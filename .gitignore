@@ -2,3 +2,6 @@ node_modules/
 .env
 .env.local
 _interno/
+
+# capturas fuente (se publican convertidas a .jpg)
+images/**/Screenshot*
