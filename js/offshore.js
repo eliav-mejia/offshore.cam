@@ -29,26 +29,28 @@
     a.addEventListener("click", function () { menu.classList.remove("abierto"); btn.setAttribute("aria-expanded", "false"); });
   });
 
-  // Reparto del costo de producción
-  var barra = $("#repartoBarra"), pct = $("#repartoPct");
+  // ¿Cómo se divide? Marca principal + colaboradoras
+  var barra = $("#repartoBarra"), cuantas = $("#repartoCuantas");
   function repartir(n) {
     barra.innerHTML = "";
+    var p = document.createElement("div");
+    p.className = "principal"; p.textContent = "Principal";
+    barra.appendChild(p);
     for (var i = 1; i <= n; i++) {
       var d = document.createElement("div");
-      d.textContent = n === 1 ? "Tu marca" : "Marca " + i;
+      d.textContent = (n > 2 || window.innerWidth < 600) ? "Colab. " + i : "Colaboradora " + i;
       d.style.animationDelay = (i * 60) + "ms";
       barra.appendChild(d);
     }
-    var v = Math.round(1000 / n) / 10;
-    pct.textContent = String(v).replace(".", ",") + " %";
+    cuantas.textContent = "(" + n + ")";
     $$(".reparto__control button").forEach(function (b) {
-      b.setAttribute("aria-pressed", String(Number(b.dataset.marcas) === n));
+      b.setAttribute("aria-pressed", String(Number(b.dataset.colab) === n));
     });
   }
   $$(".reparto__control button").forEach(function (b) {
-    b.addEventListener("click", function () { repartir(Number(b.dataset.marcas)); });
+    b.addEventListener("click", function () { repartir(Number(b.dataset.colab)); });
   });
-  repartir(2);
+  repartir(1);
 
   // Enlaces «Cotizar X» marcan el servicio en el formulario
   $$("[data-servicio]").forEach(function (a) {
@@ -92,7 +94,7 @@
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); } });
     }, { rootMargin: "0px 0px -8% 0px" });
-    $$(".seccion__cabeza, .nota, .servicio, .pasos li, .reparto, .medida > *, .canales li, .cita").forEach(function (el) {
+    $$(".seccion__cabeza, .nota, .servicio, .portafolio .foto, .equipo .foto, .pasos li, .reparto, .medida > *, .canales li, .cita").forEach(function (el) {
       el.classList.add("revela"); io.observe(el);
     });
   }
