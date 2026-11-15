@@ -1,4 +1,4 @@
-/* OFFSHORE · offshore.cam · 1.0.0 — sin dependencias */
+/* OFFSHORE · offshore.cam · 1.3.0 — sin dependencias; una página por tema */
 (function () {
   "use strict";
   var CORREO = "hola@offshore.cam"; // [[pendiente: confirmar buzón]]
@@ -11,11 +11,11 @@
   var hoy = new Date();
   $("#fecha").textContent = meses[hoy.getMonth()] + " " + hoy.getFullYear();
   $("#anio").textContent = hoy.getFullYear();
-  $("#correoDestino").textContent = CORREO;
+  if ($("#correoDestino")) $("#correoDestino").textContent = CORREO;
 
   // Cabecera compacta al bajar
   var cab = $("#cabecera");
-  var compactar = function () { cab.classList.toggle("compacta", window.scrollY > 80); };
+  var compactar = function () { var y = window.scrollY; if (y > 80) cab.classList.add("compacta"); else if (y < 20) cab.classList.remove("compacta"); };
   window.addEventListener("scroll", compactar, { passive: true });
   compactar();
 
@@ -29,8 +29,29 @@
     a.addEventListener("click", function () { menu.classList.remove("abierto"); btn.setAttribute("aria-expanded", "false"); });
   });
 
+  // Desplegables: Portadas y Servicios (clic o teclado; en escritorio también al pasar el ratón)
+  var abres = $$(".menu__abre", menu);
+  function cerrar(excepto) {
+    abres.forEach(function (b) { if (b !== excepto) b.setAttribute("aria-expanded", "false"); });
+  }
+  abres.forEach(function (b) {
+    b.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var abrir = b.getAttribute("aria-expanded") !== "true";
+      cerrar(b);
+      b.setAttribute("aria-expanded", String(abrir));
+    });
+  });
+  document.addEventListener("click", function (e) { if (!menu.contains(e.target)) cerrar(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    var abierto = abres.filter(function (b) { return b.getAttribute("aria-expanded") === "true"; })[0];
+    cerrar(); if (abierto) abierto.focus();
+  });
+
   // ¿Cómo se divide? Marca principal + colaboradoras
   var barra = $("#repartoBarra"), cuantas = $("#repartoCuantas");
+  if (barra) {
   function repartir(n) {
     barra.innerHTML = "";
     var p = document.createElement("div");
@@ -51,18 +72,18 @@
     b.addEventListener("click", function () { repartir(Number(b.dataset.colab)); });
   });
   repartir(1);
+  }
 
-  // Enlaces «Cotizar X» marcan el servicio en el formulario
-  $$("[data-servicio]").forEach(function (a) {
-    a.addEventListener("click", function () {
-      var c = $('input[data-clave="' + a.dataset.servicio + '"]');
-      if (c) c.checked = true;
-    });
-  });
+  // «Cotizar X →» llega como cotiza/index.html?servicio=X y marca el servicio
+  var pedido = /[?&]servicio=(\w+)/.exec(window.location.search);
+  if (pedido) {
+    var c = $('input[data-clave="' + pedido[1] + '"]');
+    if (c) c.checked = true;
+  }
 
   // Cotización → correo prellenado (sin servidor)
   var form = $("#cotizaForm"), aviso = $("#cotizaAviso");
-  form.addEventListener("submit", function (e) {
+  if (form) form.addEventListener("submit", function (e) {
     e.preventDefault();
     var servicios = $$('input[name="servicio"]:checked', form).map(function (i) { return i.value; });
     var f = form.elements;

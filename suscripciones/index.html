@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suscripciones · OFFSHORE</title>
+<meta name="description" content="Suscripciones mensuales de contenido generado con IA para marcas: Oro 5x, Plata 2x y Bronce 3x.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="../images/marca/offshore-emblema.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/offshore.css">
+<style>
+  .planes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--tinta);max-width:var(--ancho);margin:0 auto}
+  .plan{display:flex;flex-direction:column;padding:clamp(28px,3.4vw,48px) clamp(22px,2.8vw,40px);border-right:1px solid var(--tinta);position:relative}
+  .plan:last-child{border-right:0}
+  .plan::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--metal)}
+  .plan--oro{--metal:#b8935a;background:var(--tinta);color:var(--papel)}
+  .plan--plata{--metal:#a9abae}
+  .plan--bronce{--metal:#8f5c3a}
+  .plan__sello{font:500 11px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--metal);margin:0 0 18px}
+  .plan__nombre{display:flex;align-items:baseline;gap:14px;margin:0 0 6px}
+  .plan__nombre h2{font:400 clamp(40px,4.4vw,60px)/1 var(--serif);font-variation-settings:"opsz" 96}
+  .plan__x{font:italic 400 clamp(30px,3vw,42px)/1 var(--serif);color:var(--metal)}
+  .plan__cuenta{font:500 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;margin:0 0 22px;color:var(--gris)}
+  .plan--oro .plan__cuenta{color:#bdb9b2}
+  .plan__precio{margin:0 0 22px;font:400 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+  .plan__precio span{display:block;font:500 clamp(40px,4vw,54px)/1.05 var(--serif);letter-spacing:0;color:var(--tinta);font-variation-settings:"opsz" 96}
+  .plan--oro .plan__precio{color:#bdb9b2}
+  .plan--oro .plan__precio span{color:var(--metal)}
+  .plan__texto{margin:0 0 22px;font-size:16px;color:#3a3a3a}
+  .plan--oro .plan__texto{color:#d8d4cd}
+  .plan ul{list-style:none;margin:0 0 30px;padding:0;font-size:15px}
+  .plan li{padding:10px 0 10px 22px;border-top:1px solid var(--linea);position:relative}
+  .plan--oro li{border-top-color:#2c2c2c}
+  .plan li::before{content:"";position:absolute;left:0;top:17px;width:9px;height:9px;background:var(--metal)}
+  .plan .boton{margin-top:auto;text-align:center}
+  .plan--oro .boton{background:var(--papel);color:var(--tinta);border-color:var(--papel)}
+  .plan--oro .boton:hover{background:transparent;color:var(--papel)}
+  .nota-ia{max-width:760px;margin:clamp(36px,5vw,56px) auto 0;text-align:center;font-size:14px;color:var(--gris)}
+  .sus-cabecera{position:static}
+  .sus-cabecera .mancheta{grid-template-columns:1fr auto 1fr}
+  .sus-volver{justify-self:start;font:400 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
+  @media (max-width:900px){
+    .planes{grid-template-columns:1fr}
+    .plan{border-right:0;border-bottom:1px solid var(--tinta)}
+    .plan:last-child{border-bottom:0}
+  }
+  @media (max-width:600px){.sus-volver{font-size:10px;letter-spacing:.1em}}
+</style>
+</head>
+<body>
+
+<header class="cabecera sus-cabecera">
+  <div class="mancheta">
+    <a class="sus-volver" href="../">← Inicio</a>
+    <a class="mancheta__nombre" href="../">OFFSHORE</a>
+    <span></span>
+  </div>
+</header>
+
+<main>
+  <section class="seccion" style="border-top:0">
+    <header class="seccion__cabeza">
+      <p class="rotulo">Suscripciones · Contenido con IA</p>
+      <h2>Tu marca, <em>cada mes</em></h2>
+      <p class="seccion__entrada">Contenido generado con inteligencia artificial, dirigido por nuestro equipo editorial y publicado en nuestros canales. Elige la frecuencia que necesita tu marca.</p>
+    </header>
+
+
+    <div class="planes">
+      <article class="plan plan--oro">
+        <p class="plan__sello">Máxima exposición</p>
+        <div class="plan__nombre"><h2>Oro</h2><span class="plan__x">5x</span></div>
+        <p class="plan__cuenta">5 publicaciones al mes</p>
+        <p class="plan__precio"><span>$3,380</span> MXN / mes</p>
+        <p class="plan__texto">Máxima exposición para tu marca con 5 publicaciones mensuales hechas a la medida, como colaborador principal y secundario.</p>
+        <ul>
+          <li>5 publicaciones mensuales</li>
+          <li>Colaborador principal y secundario</li>
+          <li>2 piezas únicas diseñadas especialmente para tu marca</li>
+          <li>3 piezas de contenido en colaboración</li>
+          <li>Un flujo constante de contenido de alta conversión para tus lanzamientos y novedades</li>
+        </ul>
+        <a class="boton" href="https://buy.stripe.com/14A8wJ9Yg84Ae12dqK0kE03" rel="noopener">Suscribirme a Oro</a>
+      </article>
+
+      <article class="plan plan--plata">
+        <p class="plan__sello">100 % a la medida</p>
+        <div class="plan__nombre"><h2>Plata</h2><span class="plan__x">2x</span></div>
+        <p class="plan__cuenta">2 publicaciones al mes</p>
+        <p class="plan__precio"><span>$2,240</span> MXN / mes</p>
+        <p class="plan__texto">Contenido 100 % a la medida (tailor-made) creado para tu marca.</p>
+        <ul>
+          <li>2 publicaciones mensuales</li>
+          <li>Anunciante principal</li>
+        </ul>
+        <a class="boton boton--linea" href="https://buy.stripe.com/dRm9ANb2k84A3mobiC0kE04" rel="noopener">Suscribirme a Plata</a>
+      </article>
+
+      <article class="plan plan--bronce">
+        <p class="plan__sello">Alcance compartido</p>
+        <div class="plan__nombre"><h2>Bronce</h2><span class="plan__x">3x</span></div>
+        <p class="plan__cuenta">3 publicaciones al mes</p>
+        <p class="plan__precio"><span>$1,500</span> MXN / mes</p>
+        <p class="plan__texto">Impulsa tu marca con 3 publicaciones mensuales optimizadas y adaptadas a tu identidad.</p>
+        <ul>
+          <li>3 publicaciones mensuales</li>
+          <li>Colaborador secundario</li>
+          <li>Optimizadas y adaptadas a tu identidad</li>
+          <li>Publicación conjunta para maximizar el alcance en ambos perfiles</li>
+        </ul>
+        <a class="boton boton--linea" href="https://buy.stripe.com/eVq9ANgmE5Ws6yA2M60kE02" rel="noopener">Suscribirme a Bronce</a>
+      </article>
+    </div>
+
+    <p class="nota-ia">Todo el contenido de estas suscripciones se genera con inteligencia artificial y se identifica como tal en cada publicación. Suscripción mensual; el pago se procesa de forma segura con Stripe.</p>
+  </section>
+</main>
+
+<footer class="pie">
+  <img class="pie__emblema" src="../images/marca/offshore-emblema.jpg" alt="" aria-hidden="true">
+  <p class="pie__nombre">OFFSHORE</p>
+  <p class="pie__legal">© <span id="anio">2026</span> OFFSHORE · offshore.cam</p>
+</footer>
+
+<script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
+</body>
+</html>
